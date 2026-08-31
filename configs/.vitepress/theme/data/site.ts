@@ -9,7 +9,7 @@ export const siteText = {
   home: {
     signal: '正在持续研究',
     latestLabel: '最近',
-    latest: '最新研究',
+    latest: '最新作品',
     latestDescription: '从可复现的实验，到仍在形成中的问题。',
     recentCount: '篇近期文章',
     featured: '重点',

@@ -5,6 +5,7 @@ import SiteFooter from './components/layout/SiteFooter.vue'
 import HomePage from './components/pages/home/HomePage.vue'
 import ArticlePage from './components/pages/ArticlePage.vue'
 import ContentPage from './components/pages/ContentPage.vue'
+import ResearchIndexPage from './components/pages/ResearchIndexPage.vue'
 
 const { frontmatter } = useData()
 </script>
@@ -17,6 +18,7 @@ const { frontmatter } = useData()
       <ArticlePage v-else-if="frontmatter.layout === 'article'">
         <Content />
       </ArticlePage>
+      <ResearchIndexPage v-else-if="frontmatter.layout === 'research-index'" />
       <ContentPage v-else>
         <Content />
       </ContentPage>

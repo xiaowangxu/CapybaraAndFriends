@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { ArrowRight, BookOpen, ChevronRight } from '@lucide/vue'
+import { ArrowRight, BookOpen } from '@lucide/vue'
 import { researchArticles } from '../../../data/content'
 import { routes, siteText } from '../../../data/site'
 import ArticleCard from '../../content/ArticleCard.vue'
@@ -9,29 +9,29 @@ const latest = computed(() => researchArticles().slice(0, 4))
 </script>
 
 <template>
-  <section id="latest" class="home-section home-section--latest">
-    <div class="section-heading-row">
-      <div class="section-heading-row__title">
-        <p class="section-label"><BookOpen :size="15" :stroke-width="1.8" />{{ siteText.home.latestLabel }}</p>
-        <h2>{{ siteText.home.latest }}</h2>
+  <section id="latest" class="mx-auto w-full max-w-7xl mt-16 mb-28 px-10">
+    <div class="mb-10 flex items-end justify-between gap-6 px-8 pr-3">
+      <div>
+        <h2 class="mt-2 text-5xl font-[450]">
+          {{ siteText.home.latest }}
+        </h2>
       </div>
-      <a :href="routes.research" class="text-link">{{ siteText.home.viewAll }}<ArrowRight :size="16" :stroke-width="1.8" /></a>
+      <a
+        :href="routes.research"
+        class="group inline-flex shrink-0 items-center gap-2 text-lg hover:bg-neutral-200 transition-colors px-4 py-2 rounded-xl"
+      >
+        {{ siteText.home.viewAll }}
+        <ArrowRight :size="20" :stroke-width="1.5" class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+      </a>
     </div>
 
-    <div class="latest-layout">
-      <aside class="section-rail panel">
-        <!-- <div class="section-rail__top">
-          <span class="status-dot" aria-hidden="true"></span>
-          <span>{{ siteText.home.signal }}</span>
-        </div>
-        <div class="section-rail__count"><strong>{{ latest.length }}</strong><span>{{ siteText.home.recentCount }}</span></div>
-        <div class="section-rail__topics">
-          <span v-for="article in latest.slice(0, 3)" :key="article.url"><ChevronRight :size="14" :stroke-width="1.8" />{{ article.frontmatter.topic || article.frontmatter.type }}</span>
-        </div> -->
-      </aside>
-      <div class="article-list">
-        <ArticleCard v-for="(article, index) in latest" :key="article.url" :article="article" :featured="index === 0" />
-      </div>
+    <div>
+      <ArticleCard
+        v-for="(article, index) in latest"
+        :key="article.url"
+        :article="article"
+        :index="index"
+      />
     </div>
   </section>
 </template>

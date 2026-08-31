@@ -10,7 +10,7 @@ import RecentArticles from './RecentArticles.vue'
       </div>
     </section>
 
-    <section class="h-160 flex flex-col justify-center items-center mb-8">
+    <section class="flex flex-col justify-center items-center">
       <RecentArticles />
     </section>
   </main>
