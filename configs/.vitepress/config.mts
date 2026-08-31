@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/CapybaraAndFriends/',
   srcDir: '../docs',
   title: 'Capybara & Friends',
   description: '独立研究机构',

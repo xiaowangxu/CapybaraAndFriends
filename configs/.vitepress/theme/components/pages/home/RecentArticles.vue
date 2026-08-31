@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { ArrowRight, BookOpen } from '@lucide/vue'
+import { withBase } from 'vitepress'
 import { researchArticles } from '../../../data/content'
 import { routes, siteText } from '../../../data/site'
 import ArticleCard from '../../content/ArticleCard.vue'
@@ -17,7 +18,7 @@ const latest = computed(() => researchArticles().slice(0, 4))
         </h2>
       </div>
       <a
-        :href="routes.research"
+        :href="withBase(routes.research)"
         class="group inline-flex shrink-0 items-center gap-2 text-lg hover:bg-neutral-200 transition-colors px-4 py-2 rounded-xl"
       >
         {{ siteText.home.viewAll }}

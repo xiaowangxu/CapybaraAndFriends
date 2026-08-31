@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ArrowUpRight, Clock3 } from '@lucide/vue'
+import { withBase } from 'vitepress'
 import { formatDate, type DocRecord } from '../../data/content'
 
 const props = withDefaults(defineProps<{
@@ -15,7 +16,7 @@ const numberLabel = String((props.index ?? 0) + 1).padStart(2, '0')
 
 <template>
   <a
-    :href="article.url"
+    :href="withBase(article.url)"
     class="group block bg-transparent border border-transparent rounded-2xl px-8 py-6 transition duration-250 hover:bg-white hover:border-neutral-300 hover:shadow-2xl/5 hover:-translate-y-0.5"
   >
     <div class="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 gap-y-4 md:grid-cols-[8.5rem_minmax(0,1fr)_10.5rem] md:items-center md:gap-8">
