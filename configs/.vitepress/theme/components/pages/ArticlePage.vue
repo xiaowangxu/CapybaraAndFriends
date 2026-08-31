@@ -34,7 +34,7 @@ onContentUpdated(refreshHeadings)
 <template>
   <main class="article-page">
 
-    <header class="mt-36 mb-20 px-10 flex">
+    <header class="mt-36 mb-26 px-10 flex">
       <div class="mx-auto flex flex-col items-center gap-5">
         <div class="flex gap-4 text-neutral-400 text-sm">
           <span v-if="frontmatter.author">{{ frontmatter.author }}</span>

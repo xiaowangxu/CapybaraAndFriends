@@ -2,8 +2,8 @@
 layout: article
 title: 看到 Cordis，我想到了 Vue
 description: 关于DeepSeek Harness，可组合性，软件工程和 AGI
-type: Research
-topic: Memory
+type: 随笔
+topic: Frontend
 date: 2026-09-01
 author: Capybara & Friends
 readingTime: 8 min
