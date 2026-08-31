@@ -112,6 +112,18 @@ button {
   margin: 1rem 0;
 }
 
+.article-content p:has(> mjx-container.MathJax:only-child) {
+  overflow-x: auto;
+}
+
+.article-content p:has(> mjx-container.MathJax:only-child) > mjx-container.MathJax {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: .25rem 0;
+}
+
 .article-content ul,
 .article-content ol {
   margin: 1.1rem 0;

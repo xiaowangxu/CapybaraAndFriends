@@ -9,6 +9,9 @@ export default defineConfig({
   lang: 'zh-CN',
   cleanUrls: true,
   appearance: false,
+  markdown: {
+    math: true
+  },
   vite: {
     plugins: [tailwindcss()]
   }
