@@ -6,7 +6,7 @@ export default defineConfig({
   base: '/CapybaraAndFriends/',
   srcDir: '../docs',
   title: 'Capybara & Friends',
-  description: '独立研究机构',
+  description: 'sunwx的乱七八糟',
   lang: 'zh-CN',
   cleanUrls: true,
   appearance: false,

@@ -1,12 +1,11 @@
 ---
 layout: article
 title: 看到 Cordis，我想到了 Vue
-description: 关于DeepSeek Harness，可组合性，软件工程和 AGI
+description: 关于 DeepSeek Harness，可组合性，软件工程和 AGI
 type: 随笔
 topic: Frontend
 date: 2026-09-01
-author: Capybara & Friends
-readingTime: 8 min
+author: SunWx
 status: Published
 ---
 
@@ -510,7 +509,6 @@ $
 > 有些 Plugin 是全局的，有些属于 session，有些属于 agent。
 
 于是加入：`scope / lifetime / ownership`
-`
 
 接着：
 
