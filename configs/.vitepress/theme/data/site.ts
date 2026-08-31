@@ -1,6 +1,6 @@
 export const siteText = {
   nav: {
-    research: '研究',
+    research: '作品',
     projects: '项目',
     about: '关于',
     search: '搜索',

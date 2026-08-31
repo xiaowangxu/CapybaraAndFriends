@@ -52,7 +52,7 @@ onContentUpdated(refreshHeadings)
         </div> -->
       </div>
     </header>
-    
+
     <!-- <aside class="fixed right-10">
       <div class="toc-card panel">
         <p class="panel-label">
@@ -66,13 +66,13 @@ onContentUpdated(refreshHeadings)
       </div>
     </aside> -->
 
-    <div class="max-w-4xl px-10 mx-auto">
+    <div class="max-w-4xl px-10 mx-auto mb-34">
       <article class="article-content">
         <slot />
       </article>
     </div>
 
-    <section v-if="related.length" class="related-section page-container">
+    <!-- <section v-if="related.length" class="related-section page-container">
       <div class="related-section__heading">
         <p class="section-label">
           <ArrowUpRight :size="15" :stroke-width="1.8" />{{ text.related }}
@@ -88,6 +88,6 @@ onContentUpdated(refreshHeadings)
           <ArrowUpRight :size="18" :stroke-width="1.8" />
         </a>
       </div>
-    </section>
+    </section> -->
   </main>
 </template>

@@ -4,7 +4,7 @@ import BrandMark from '../ui/BrandMark.vue'
 
 const links = [
   { label: siteText.nav.research, href: routes.research },
-  { label: siteText.nav.about, href: routes.about }
+  // { label: siteText.nav.about, href: routes.about }
 ]
 </script>
 
