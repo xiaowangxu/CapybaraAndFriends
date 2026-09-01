@@ -42,7 +42,7 @@ function resetLab() {
 
 普通段落可以同时包含 **粗体**、*斜体*、***粗斜体***、~~删除线~~、`inline code`、<mark>高亮文本</mark>、H<sub>2</sub>O、x<sup>2</sup>，以及一个指向 [VitePress 官方文档](https://vitepress.dev/) 的外部链接。
 
-中文标点、English words、`camelCaseIdentifier` 与一段很长的不可分割文本 `renderer_pipeline_should_remain_readable_even_when_identifiers_become_uncomfortably_long` 也被故意混合在这里，用于观察换行策略。
+中文标点、English words、`camelCaseIdentifier` 与一段很长的不可分割文本 <code :class="$style['breakable-code']">renderer_pipeline_should_remain_readable_even_when_identifiers_become_uncomfortably_long</code> 也被故意混合在这里，用于观察换行策略。
 
 ## 第二层：标题层级
 
@@ -120,11 +120,17 @@ function resetLab() {
 
 下面是一个块级积分：
 
+<div :class="$style['formula-scroll']">
+
 $$
 \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
 $$
 
+</div>
+
 再放入一个带分段条件、求和与矩阵的组合：
+
+<div :class="$style['formula-scroll']">
 
 $$
 f(x) =
@@ -140,6 +146,8 @@ A =
 7 & 8 & 9
 \end{bmatrix}
 $$
+
+</div>
 
 ::: tip 公式测试提示
 如果公式比正文宽，容器应该允许局部滚动，不应导致整页出现横向滚动条。
@@ -216,16 +224,16 @@ const count = ref(0)
 
 下面则是一个原生 HTML `figure`，图片地址通过 VitePress 的 `withBase()` 动态绑定：
 
-<figure class="html-figure">
+<figure :class="$style['html-figure']">
   <img :src="withBase('/assets/capybara.png')" alt="正在工作的水豚图标">
   <figcaption>
     <strong>图 1：</strong>原生 HTML、Vue 属性绑定与语义化 <code>figcaption</code> 的组合。
   </figcaption>
 </figure>
 
-<details class="native-details">
+<details :class="$style['native-details']">
   <summary>原生 HTML details：点击查看诊断信息</summary>
-  <div class="native-details__body">
+  <div :class="$style['native-details__body']">
     <p><strong>渲染模式：</strong>HTML5 disclosure widget</p>
     <p><strong>键盘支持：</strong>聚焦后可用 Enter 或 Space 切换。</p>
     <p><strong>嵌套元素：</strong><kbd>Ctrl</kbd> + <kbd>K</kbd>、<mark>mark</mark>、<code>code</code></p>
@@ -236,47 +244,47 @@ const count = ref(0)
 
 下面这块不是静态示意图。它直接使用本 Markdown 文件顶部 `<script setup>` 中的响应式状态，刷新页面后会恢复初始值。
 
-<section class="vue-lab" aria-labelledby="vue-lab-title">
-  <div class="vue-lab__heading">
+<section :class="$style['vue-lab']" aria-labelledby="vue-lab-title">
+  <div :class="$style['vue-lab__heading']">
     <div>
-      <p class="vue-lab__eyebrow">LIVE VUE STATE</p>
+      <p :class="$style['vue-lab__eyebrow']">LIVE VUE STATE</p>
       <h2 id="vue-lab-title">渲染信号控制台</h2>
     </div>
-    <button type="button" class="vue-lab__reset" @click="resetLab">重置</button>
+    <button type="button" :class="$style['vue-lab__reset']" @click="resetLab">重置</button>
   </div>
 
-  <div class="vue-lab__grid">
-    <section class="vue-lab__panel" aria-label="计数器">
-      <span class="vue-lab__label">节点数量</span>
-      <div class="counter">
+  <div :class="$style['vue-lab__grid']">
+    <section :class="$style['vue-lab__panel']" aria-label="计数器">
+      <span :class="$style['vue-lab__label']">节点数量</span>
+      <div :class="$style.counter">
         <button type="button" aria-label="减少节点数量" @click="count = Math.max(0, count - 1)">−</button>
         <output aria-live="polite">{{ count }}</output>
         <button type="button" aria-label="增加节点数量" @click="count++">＋</button>
       </div>
     </section>
-    <section class="vue-lab__panel" aria-label="渲染强度">
-      <label class="vue-lab__label" for="render-intensity">渲染强度：{{ intensity }}%</label>
+    <section :class="$style['vue-lab__panel']" aria-label="渲染强度">
+      <label :class="$style['vue-lab__label']" for="render-intensity">渲染强度：{{ intensity }}%</label>
       <input id="render-intensity" v-model.number="intensity" type="range" min="0" max="100" step="1">
       <progress :value="intensity" max="100">{{ intensity }}%</progress>
     </section>
   </div>
 
-  <fieldset class="mode-picker">
+  <fieldset :class="$style['mode-picker']">
     <legend>选择当前观察模式</legend>
-    <label v-for="mode in modes" :key="mode" :class="{ 'is-active': selectedMode === mode }">
+    <label v-for="mode in modes" :key="mode" :class="{ [$style['is-active']]: selectedMode === mode }">
       <input v-model="selectedMode" type="radio" name="renderer-mode" :value="mode">
       {{ mode }}
     </label>
   </fieldset>
 
-  <div class="check-grid">
-    <label v-for="item in checks" :key="item.label" :class="{ 'is-done': item.done }">
+  <div :class="$style['check-grid']">
+    <label v-for="item in checks" :key="item.label" :class="{ [$style['is-done']]: item.done }">
       <input v-model="item.done" type="checkbox">
       <span>{{ item.label }}</span>
     </label>
   </div>
 
-  <div class="vue-lab__result" role="status" aria-live="polite">
+  <div :class="$style['vue-lab__result']" role="status" aria-live="polite">
     <span>模式 <strong>{{ selectedMode }}</strong></span>
     <span>信号 <strong>{{ signal }}</strong></span>
     <span>检查 <strong>{{ completedChecks }}/{{ checks.length }}</strong></span>
@@ -293,7 +301,7 @@ const count = ref(0)
 1. 一个带 `code` 的有序项
    - 嵌套项包含 **粗体**、*斜体* 与 $\alpha + \beta$
    - 另一个嵌套项包含链接：[回到交互实验台](#vue-交互实验台)
-2. 一个超长路径：`C:\workspace\renderer\packages\markdown\src\plugins\deeply-nested\experimental\index.ts`
+2. 一个超长路径：<code :class="$style['breakable-code']">C:\workspace\renderer\packages\markdown\src\plugins\deeply-nested\experimental\index.ts</code>
 
 > 容器里的引用仍需保持清晰的视觉边界。
 :::
@@ -303,17 +311,14 @@ const count = ref(0)
 最后一条水平分隔线之后，放置一段普通文字和一个手动换行。  
 这一行应紧跟在上一行之后，而不是开始新的段落。
 
-<style scoped>
-p > code,
-li > code,
-blockquote code,
-td code {
+<style module>
+code.breakable-code {
   overflow-wrap: anywhere;
   word-break: break-word;
   white-space: normal;
 }
 
-mjx-container[display='true'] {
+.formula-scroll {
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
