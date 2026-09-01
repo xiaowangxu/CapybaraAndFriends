@@ -168,7 +168,7 @@ const activeEquation = computed(() =>
 
 ---
 
-## 1. 一切从“四个 R”开始 {#four-r}
+# 1. 一切从“四个 R”开始 {#four-r}
 
 最开始，我们并没有想设计一个新的 linear attention，也没有先写下一条 recurrence 再寻找解释。
 
@@ -228,7 +228,7 @@ $$
 
 ---
 
-## 2. 第一个转折：记忆不是两个表，而是一个“实体” {#joint-entity}
+# 2. 第一个转折：记忆不是两个表，而是一个“实体” {#joint-entity}
 
 早期设计中，一个反复出现的问题是 K/V 的角色。
 
@@ -333,7 +333,7 @@ $$
 
 ---
 
-## 3. 真正让 ATPM 出现的问题：读到的地方，为什么一定是写回的地方？ {#source-destination}
+# 3. 真正让 ATPM 出现的问题：读到的地方，为什么一定是写回的地方？ {#source-destination}
 
 绝大多数 delta-style memory 都隐含了一个很强的假设：
 
@@ -392,7 +392,7 @@ $$
 
 ---
 
-## 4. Oblique write：不是“移动地址”，而是在切空间里改变写入方向 {#oblique-write}
+# 4. Oblique write：不是“移动地址”，而是在切空间里改变写入方向 {#oblique-write}
 
 如果 $d_t$ 可以任意偏离 $s_t$，系统很快会变得难以控制。
 
@@ -476,7 +476,7 @@ $$
 
 ---
 
-## 5. Transport 从哪里来：让 K 与 V 共同决定“偏转方向” {#bilinear-transport}
+# 5. Transport 从哪里来：让 K 与 V 共同决定“偏转方向” {#bilinear-transport}
 
 接下来又出现一个设计问题：
 
@@ -586,7 +586,7 @@ $$
 
 ---
 
-## 6. 第二个坐标：写到哪里，与怎么读回来，不应该是同一件事 {#proximal-recall}
+# 6. 第二个坐标：写到哪里，与怎么读回来，不应该是同一件事 {#proximal-recall}
 
 有了 transport 之后，一个新的不对称出现了。
 
@@ -656,7 +656,7 @@ $$
 
 ---
 
-## 7. 两个坐标，四个极限：ATPM 的动态地图 {#atlas}
+# 7. 两个坐标，四个极限：ATPM 的动态地图 {#atlas}
 
 下面这张图不是四个离散模式。
 
@@ -679,7 +679,6 @@ $$
       />
       <small>query-anchor residual remains {{ queryResidual }}%</small>
     </div>
-
     <div :class="$style.controlRow">
       <div>
         <span>Directed transport</span>
@@ -696,7 +695,6 @@ $$
       <small>transport coordinate {{ transportStrength }}%</small>
     </div>
   </div>
-
   <div :class="$style.atlasMain">
     <div :class="$style.quadrant">
       <div :class="[$style.qCell, $style.qTL]">
@@ -704,32 +702,27 @@ $$
         <b>Stable Revision</b>
         <span>原址修订</span>
       </div>
-
       <div :class="[$style.qCell, $style.qTR]">
         <small>λ ↑ · ρ ↑</small>
         <b>Directed Rewrite</b>
         <span>定向重写</span>
       </div>
-
       <div :class="[$style.qCell, $style.qBL]">
         <small>λ ↓ · ρ ↓</small>
         <b>Local Update</b>
         <span>GDN-like endpoint</span>
       </div>
-
       <div :class="[$style.qCell, $style.qBR]">
         <small>λ ↓ · ρ ↑</small>
         <b>Directed Update</b>
         <span>自由检索 · 有向写入</span>
       </div>
-
       <div :class="$style.axisY">λ · recall constraint</div>
       <div :class="$style.axisX">ρ · transport →</div>
       <div :class="$style.cursor" :style="cursorStyle">
         <span></span>
       </div>
     </div>
-
     <aside :class="$style.atlasReadout">
       <span :class="$style.readoutCode">{{ atlas.code }}</span>
       <small>{{ atlas.tag }}</small>
@@ -741,7 +734,7 @@ $$
   </div>
 </div>
 
-### 四个端点的形式化解释
+## 四个端点的形式化解释
 
 | $\lambda$ | $\rho$ | 查询 | 写入 | 极限行为 |
 |---:|---:|---|---|---|
@@ -761,11 +754,11 @@ ATPM 的目标恰恰不是把 4R 重新编码成四个手工 mode，而是让它
 
 ---
 
-## 8. 到这里，4R 才真正闭合 {#four-r-closed}
+# 8. 到这里，4R 才真正闭合 {#four-r-closed}
 
 现在可以重新回到最初的问题。
 
-### Read
+## Read
 
 外部读取仍然只有一次：
 
@@ -775,7 +768,7 @@ $$
 
 $q_t$ 可以保持内容驱动，也可以由 $\lambda_t$ 向 destination anchor 做 proximal correction。
 
-### Remember
+## Remember
 
 如果没有必要更新：
 
@@ -789,7 +782,7 @@ $$
 
 没有 `remember()` 分支。
 
-### Revise
+## Revise
 
 如果新实体与旧预测接近：
 
@@ -807,7 +800,7 @@ $$
 
 如果 $\rho_t\rightarrow 0$，这种修订还会稳定发生在原地址附近。
 
-### Rewrite
+## Rewrite
 
 如果 residual 大、substitution 强，同时 $\rho_t$ 打开：
 
@@ -830,7 +823,7 @@ $$
 
 ---
 
-## 9. 把 ATPM 压缩成六步 {#six-steps}
+# 9. 把 ATPM 压缩成六步 {#six-steps}
 
 如果必须把整个模块压缩到一张白板上，我们现在会这样写。
 
@@ -905,7 +898,7 @@ $$
 
 ---
 
-## 10. 它仍然必须是一台“能训练的机器” {#parallelism}
+# 10. 它仍然必须是一台“能训练的机器” {#parallelism}
 
 到这里，ATPM 很容易变成一个漂亮但没法训练的递归系统。
 
@@ -978,7 +971,7 @@ $$
 
 ---
 
-## 11. 为什么最终版反而比中间版本更简单 {#simplification}
+# 11. 为什么最终版反而比中间版本更简单 {#simplification}
 
 ATPM 的开发过程里有过一个危险阶段：
 
@@ -1029,7 +1022,7 @@ $$
 
 ---
 
-## 12. 从合成记忆到真实语言建模 {#language-modeling}
+# 12. 从合成记忆到真实语言建模 {#language-modeling}
 
 一个 memory operator 在精心设计的 synthetic task 上工作，并不能说明它真的适合作为语言模型的一部分。
 
@@ -1074,7 +1067,7 @@ $$
 
 ATPM 可以被端到端训练，并表现出正常的语言建模学习过程。
 
-### Training traces
+## Training traces
 
 <div :class="$style.plotSlot">
   <div>
@@ -1102,11 +1095,11 @@ ATPM 可以被端到端训练，并表现出正常的语言建模学习过程。
 
 ---
 
-## 13. 我们认为已经学到的东西 {#what-we-learned}
+# 13. 我们认为已经学到的东西 {#what-we-learned}
 
 即使不声称 SOTA，这条研究路径仍然留下了几个我们认为值得记录的结论。
 
-### 13.1 Memory 更像动力学，而不是数据库
+## 13.1 Memory 更像动力学，而不是数据库
 
 把 memory 想成一个 tensor cache 很自然：
 
@@ -1128,7 +1121,7 @@ $$
 
 ---
 
-### 13.2 “从哪里读”与“往哪里写”是两个不同的问题
+## 13.2 “从哪里读”与“往哪里写”是两个不同的问题
 
 这是从 PSM 走到 ATPM 最关键的一步。
 
@@ -1152,7 +1145,7 @@ $$
 
 ---
 
-### 13.3 K/V 分离不一定意味着两套 memory
+## 13.3 K/V 分离不一定意味着两套 memory
 
 我们最后保留的是：
 
@@ -1174,7 +1167,7 @@ $$
 
 ---
 
-### 13.4 离散记忆动作可以来自连续坐标
+## 13.4 离散记忆动作可以来自连续坐标
 
 ATPM 没有 `mode = REWRITE`。
 
@@ -1192,7 +1185,7 @@ $$
 
 ---
 
-## 14. ATPM 与它的几个边界情况 {#endpoints}
+# 14. ATPM 与它的几个边界情况 {#endpoints}
 
 ATPM 不是为了让所有旧模型都消失。
 
@@ -1223,7 +1216,7 @@ ATPM 不是为了让所有旧模型都消失。
 
 ---
 
-## 15. 还不知道的事情，比已经知道的更多 {#open-questions}
+# 15. 还不知道的事情，比已经知道的更多 {#open-questions}
 
 这份报告是 ATPM 的出生记录，不是结案报告。
 
@@ -1269,7 +1262,7 @@ ATPM 不是为了让所有旧模型都消失。
 
 ---
 
-## 16. 结语：我们最后没有得到四个按钮 {#closing}
+# 16. 结语：我们最后没有得到四个按钮 {#closing}
 
 研究开始时，我们想要的是：
 
@@ -1344,7 +1337,7 @@ $$
 
 ---
 
-## Appendix A · Symbols {#symbols}
+# Appendix A · Symbols {#symbols}
 
 | Symbol | Meaning |
 |---|---|
@@ -1362,7 +1355,7 @@ $$
 | $\tau_t$ | source-orthogonal transport tangent |
 | $R$ | low-rank bilinear transport latent dimension |
 
-## Appendix B · Implementation invariants worth testing {#implementation-checks}
+# Appendix B · Implementation invariants worth testing {#implementation-checks}
 
 如果你复现 ATPM，比对最终 loss 之前，先检查这些结构性不变量：
 
@@ -1380,7 +1373,7 @@ $$
 10. no global per-head transport budget is required in the final geometry
 ```
 
-## Appendix C · Suggested evidence for the public release {#release-checklist}
+# Appendix C · Suggested evidence for the public release {#release-checklist}
 
 这不是“还要重新训练一堆模型”的清单。
 
