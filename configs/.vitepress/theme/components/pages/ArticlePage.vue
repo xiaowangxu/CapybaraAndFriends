@@ -46,7 +46,7 @@ onContentUpdated(refreshHeadings)
             formatDate(frontmatter.date) }}</time>
         </div>
         <h1 class="text-center text-5xl leading-tight font-[450]">{{ frontmatter.title }}</h1>
-        <p class="">{{ frontmatter.description }}</p>
+        <p class="whitespace-pre-line text-center">{{ frontmatter.description }}</p>
         <!-- <a :href="routes.research" class="back-link"><ArrowLeft :size="16" :stroke-width="1.8" />{{ text.back }}</a> -->
         <!-- <div class="">
           <span class="article-type">{{ frontmatter.type || 'Research' }}</span>

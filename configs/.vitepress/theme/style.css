@@ -267,7 +267,7 @@ button {
   margin: 1.5rem 0;
   padding: .5rem 1rem;
   border-left: 2px solid var(--cf-accent);
-  background: linear-gradient(90deg, rgba(235, 237, 245, 0.95), rgba(235, 237, 245, 0.25));
+  background: rgba(235, 237, 245, 0.95);
   color: #274f7d;
   font-style: italic;
 }
