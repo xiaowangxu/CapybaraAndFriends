@@ -72,7 +72,11 @@ onContentUpdated(refreshHeadings)
               class="block w-full min-w-0 rounded-xl hover:bg-neutral-100 text-neutral-800! hover:text-black! transition-colors pr-3">
               <div
                 class="flex min-w-0 items-center text-sm py-0 text-inherit group-hover:py-1.5 transition-all duration-200"
-                :class="[`group-hover:pl-${2 + (Math.min(3, Math.max(1, heading.level)) - 1) * 4}`]">
+                :class="{
+                  'group-hover:pl-2': heading.level <= 1,
+                  'group-hover:pl-6': heading.level === 2,
+                  'group-hover:pl-10': heading.level >= 3,
+                }">
                 <div class="flex shrink-0 justify-center w-4 mr-2.5">
                   <div class="aspect-square rounded-full"
                     :class="[heading.level === 0 ? 'bg-neutral-800 w-1.75' : (heading.level === 1 ? 'bg-amber-400 w-1.75' : 'bg-neutral-200 w-1.25')]">
