@@ -542,25 +542,25 @@ button {
   display: inline-block;
 }
 
-.article-content p:has(> mjx-container.MathJax:only-child) {
-  display: flow-root;
-  margin: 1.45rem auto;
+.article-content mjx-container.MathJax[display="true"] {
+  display: flex !important;
+  width: 100%;
+  max-width: 100%;
+  justify-content: safe center;
   overflow-x: auto;
   overflow-y: hidden;
+  margin: 1.45rem auto !important;
+  padding: .25rem 0;
   color: #2d1e17;
 }
 
-.article-content p:has(> mjx-container.MathJax:only-child)>mjx-container.MathJax {
-  display: grid;
-  width: max-content;
-  min-width: 100%;
+.article-content mjx-container.MathJax[display="true"]>svg {
+  flex: 0 0 auto;
   max-width: none;
-  place-items: center;
-  padding: .25rem 0;
 }
 
-.article-content p:has(> mjx-container.MathJax:only-child)>mjx-container.MathJax>svg {
-  max-width: none;
+.article-content p:has(> mjx-container.MathJax[display="true"]:only-child) {
+  margin-block: 0;
 }
 
 .article-content table {

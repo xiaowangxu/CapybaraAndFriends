@@ -120,17 +120,11 @@ function resetLab() {
 
 下面是一个块级积分：
 
-<div :class="$style['formula-scroll']">
-
 $$
 \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
 $$
 
-</div>
-
 再放入一个带分段条件、求和与矩阵的组合：
-
-<div :class="$style['formula-scroll']">
 
 $$
 f(x) =
@@ -146,8 +140,6 @@ A =
 7 & 8 & 9
 \end{bmatrix}
 $$
-
-</div>
 
 ::: tip 公式测试提示
 如果公式比正文宽，容器应该允许局部滚动，不应导致整页出现横向滚动条。
@@ -320,30 +312,6 @@ code.breakable-code {
 
 .inline-math-lock {
   white-space: nowrap;
-}
-
-.formula-scroll {
-  display: block;
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: thin;
-  -webkit-overflow-scrolling: touch;
-}
-
-.formula-scroll :global(mjx-container.MathJax[display='true']) {
-  display: grid !important;
-  width: max-content;
-  min-width: 100%;
-  max-width: none;
-  place-items: center;
-  margin: 1em 0 !important;
-  text-align: center;
-}
-
-.formula-scroll :global(mjx-container.MathJax[display='true'] > svg) {
-  display: block;
-  max-width: none;
 }
 
 .html-figure {
