@@ -4,7 +4,7 @@ title: 看到 Cordis，我想到了 Vue
 description: 关于 DeepSeek Harness，可组合性，软件工程和 AGI
 type: 随笔
 topic: Frontend
-date: 2026-09-01
+date: 2026-08-14
 author: SunWx
 status: Published
 ---

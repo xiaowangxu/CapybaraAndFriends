@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref } from 'vue'
 import { ArrowLeft, ArrowUpRight, BookOpen, ChevronDown, Clock3 } from '@lucide/vue'
-import { onContentUpdated, useData } from 'vitepress'
+import { onContentUpdated, useData, withBase } from 'vitepress'
 import { formatDate, researchArticles } from '../../data/content'
 import { routes, siteText } from '../../data/site'
 
@@ -38,7 +38,10 @@ onContentUpdated(refreshHeadings)
 <template>
   <main class="article-page" id="article-content-main">
 
-    <header class="pt-36 pb-20 px-5 flex">
+    <header class="pt-36 pb-20 px-5 flex flex-col items-center">
+      <img v-if="frontmatter.banner" class="w-150 bg-contain bg-no-repeat bg-center mb-12"
+        :src="withBase(`/banners/${frontmatter.banner}`)">
+      </img>
       <div class="mx-auto flex flex-col items-center gap-4">
         <div class="flex gap-4 text-xs text-neutral-400">
           <span v-if="frontmatter.author">{{ frontmatter.author }}</span>

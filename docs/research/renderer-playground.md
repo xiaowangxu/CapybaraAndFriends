@@ -6,7 +6,7 @@ type: 实验
 topic: Frontend
 date: 2026-09-01
 author: SunWx
-status: Published
+status: Internal
 ---
 
 <script setup lang="ts">
