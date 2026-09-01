@@ -110,12 +110,10 @@ button {
 }
 
 .article-content strong {
-  color: #1f1916;
   font-weight: 650;
 }
 
 .article-content em {
-  color: #5f5149;
   font-style: italic;
   font-synthesis: style;
 }
@@ -267,8 +265,8 @@ button {
 
 .article-content blockquote {
   margin: 1.5rem 0;
-  padding: .85rem 1.15rem;
-  border-left: 3px solid var(--cf-accent);
+  padding: .5rem 1rem;
+  border-left: 2px solid var(--cf-accent);
   background: linear-gradient(90deg, rgba(235, 237, 245, 0.95), rgba(235, 237, 245, 0.25));
   color: #274f7d;
   font-style: italic;
@@ -304,10 +302,6 @@ button {
 
 .article-content blockquote>:last-child {
   margin-bottom: 0;
-}
-
-.article-content blockquote strong {
-  color: #34261f;
 }
 
 .article-content code {
