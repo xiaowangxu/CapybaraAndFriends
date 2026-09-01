@@ -63,16 +63,16 @@ onContentUpdated(refreshHeadings)
       <div class="p-10 overflow-hidden group">
         <aside class="bg-white outline outline-neutral-300 shadow-lg/5 flex gap-2 overflow-y-auto overflow-x-hidden px-2 py-2 box-content max-h-full scrollbar-none
         w-8 rounded-2xl group-hover:w-80 transition-all duration-200">
-          <nav v-if="headings.length" class="flex flex-col text-nowrap gap-0 items-start min-h-fit">
+          <nav v-if="headings.length" class="flex w-full min-w-0 flex-col gap-0 min-h-fit">
             <a v-for="heading in headings" :key="heading.id" :href="`#${heading.id}`"
-              class="rounded-xl hover:bg-neutral-100 text-neutral-800! hover:text-black! transition-colors pr-3">
-              <div class="flex items-center text-sm py-0 text-inherit group-hover:py-1.5 transition-all duration-200"
+              class="block w-full min-w-0 rounded-xl hover:bg-neutral-100 text-neutral-800! hover:text-black! transition-colors pr-3">
+              <div class="flex min-w-0 items-center text-sm py-0 text-inherit group-hover:py-1.5 transition-all duration-200"
                 :class="[`group-hover:pl-${2 + (Math.min(3, heading.level) - 1) * 3}`]">
-                <div class="flex justify-center w-4 mr-2.5">
+                <div class="flex shrink-0 justify-center w-4 mr-2.5">
                   <div class="aspect-square rounded-full"
                     :class="[heading.level === 1 ? 'bg-amber-400 w-1.75' : 'bg-neutral-200 w-1.25']"></div>
                 </div>
-                <span class="opacity-0 group-hover:opacity-100 transition-all duration-100">{{ heading.text }}</span>
+                <span class="min-w-0 truncate opacity-0 group-hover:opacity-100 transition-all duration-100">{{ heading.text }}</span>
               </div>
             </a>
           </nav>
