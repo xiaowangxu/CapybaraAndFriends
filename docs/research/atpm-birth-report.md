@@ -751,14 +751,11 @@ $$
 
 如果你复现 ATPM，比对最终 loss 之前，先检查这些结构性不变量：
 
-```text
-1. source s must be unit-normalized
-2. tau must be orthogonal to s
-3. sᵀ d ≈ 1
-4. ||b|| < 1 because of the soft-sphere map
-5. rho, lambda ∈ (0, 1)
-6. lambda residual law:
-      1 - qᵀa = (1 - lambda)(1 - q0ᵀa)
-7. sequential reference ≈ chunk-WY parallel path
-8. rho/lambda controllers begin from the neutral 0.5 point
-```
+1. source $s$ must be unit-normalized
+2. $\tau$ must be orthogonal to $s$
+3. $s^T d ≈ 1$
+4. $||b|| < 1$ because of the soft-sphere map
+5. $\rho, \lambda ∈ (0, 1)$
+6. lambda residual law: $1 - q^Ta = (1 - \lambda)(1 - q_0^Ta)$
+7. sequential reference $≈$ chunk-WY parallel path
+8. $\rho/\lambda$ controllers begin from the neutral 0.5 point
