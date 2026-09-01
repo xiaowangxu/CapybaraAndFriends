@@ -23,6 +23,6 @@ const { frontmatter } = useData()
         <Content />
       </ContentPage>
     </div>
-    <SiteFooter />
+    <!-- <SiteFooter /> -->
   </div>
 </template>

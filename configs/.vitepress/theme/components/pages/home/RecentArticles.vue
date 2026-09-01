@@ -4,7 +4,7 @@ import { ArrowRight, BookOpen } from '@lucide/vue'
 import { withBase } from 'vitepress'
 import { researchArticles } from '../../../data/content'
 import { routes, siteText } from '../../../data/site'
-import ArticleCard from '../../content/ArticleCard.vue'
+import ArticleCard from '../../layout/ArticleCard.vue'
 
 const latest = computed(() => researchArticles().slice(0, 4))
 </script>

@@ -4,7 +4,7 @@ import { ChevronDown, FileText, Search, X } from '@lucide/vue'
 import { useData } from 'vitepress'
 import { researchArticles } from '../../data/content'
 import { siteText } from '../../data/site'
-import ArticleCard from '../content/ArticleCard.vue'
+import ArticleCard from '../layout/ArticleCard.vue'
 
 const { frontmatter } = useData()
 const articles = researchArticles()

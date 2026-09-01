@@ -53,12 +53,12 @@ onContentUpdated(refreshHeadings)
       </div>
     </header>
 
-    <!-- <aside class="fixed right-10">
-      <div class="toc-card panel">
+    <!-- <aside class="fixed right-10 bg-white">
+      <div class="">
         <p class="panel-label">
           <BookOpen :size="15" :stroke-width="1.8" />{{ text.contents }}
         </p>
-        <nav v-if="headings.length" class="toc-list">
+        <nav v-if="headings.length" class="flex flex-col">
           <a v-for="heading in headings" :key="heading.id" :href="`#${heading.id}`"
             :class="{ 'is-subheading': heading.level === 3 }">{{ heading.text }}</a>
         </nav>
