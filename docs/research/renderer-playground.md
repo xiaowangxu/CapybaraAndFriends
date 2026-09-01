@@ -116,7 +116,7 @@ function resetLab() {
 
 # 公式：从行内到矩阵
 
-行内公式 $E = mc^2$ 应该和中文基线自然对齐。概率密度也可以写成 $p(x \mid \mu, \sigma^2)$。
+行内公式 $E = mc^2$ 应该和中文基线自然对齐。概率密度也可以写成 <span :class="$style['inline-math-lock']">$p(x \mid \mu, \sigma^2)$。</span>
 
 下面是一个块级积分：
 
@@ -318,10 +318,32 @@ code.breakable-code {
   white-space: normal;
 }
 
+.inline-math-lock {
+  white-space: nowrap;
+}
+
 .formula-scroll {
+  display: block;
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.formula-scroll :global(mjx-container.MathJax[display='true']) {
+  display: grid !important;
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  place-items: center;
+  margin: 1em 0 !important;
+  text-align: center;
+}
+
+.formula-scroll :global(mjx-container.MathJax[display='true'] > svg) {
+  display: block;
+  max-width: none;
 }
 
 .html-figure {
