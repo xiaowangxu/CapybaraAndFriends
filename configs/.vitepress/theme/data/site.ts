@@ -54,6 +54,4 @@ export const siteText = {
 export const routes = {
   home: '/',
   research: '/research/',
-  projects: '/projects/',
-  about: '/about/'
 } as const

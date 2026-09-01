@@ -3,7 +3,7 @@
 @source "../../../docs/**/*.md";
 
 :root {
-  --cf-bg: oklch(98% 0 0);
+  --cf-bg: oklch(96% 0 0);
   --cf-surface: #ffffff;
   --cf-border: #dedede;
   --cf-border-strong: #cfcfcf;

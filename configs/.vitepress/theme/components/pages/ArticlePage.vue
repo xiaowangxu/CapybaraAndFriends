@@ -53,23 +53,32 @@ onContentUpdated(refreshHeadings)
       </div>
     </header>
 
-    <!-- <aside class="fixed right-10 bg-white">
-      <div class="">
-        <p class="panel-label">
-          <BookOpen :size="15" :stroke-width="1.8" />{{ text.contents }}
-        </p>
-        <nav v-if="headings.length" class="flex flex-col">
-          <a v-for="heading in headings" :key="heading.id" :href="`#${heading.id}`"
-            :class="{ 'is-subheading': heading.level === 3 }">{{ heading.text }}</a>
-        </nav>
-        <p v-else class="toc-empty">{{ text.noSections }}</p>
-      </div>
-    </aside> -->
-
     <div class="max-w-5xl px-10 mx-auto mb-34">
       <article class="article-content">
         <slot />
       </article>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 flex flex-col justify-center items-end py-6">
+      <div class="p-10 overflow-hidden group">
+        <aside class="bg-white outline outline-neutral-300 shadow-lg/5 flex gap-2 overflow-y-auto overflow-x-hidden px-2 py-2 box-content max-h-full scrollbar-none
+        w-8 rounded-2xl group-hover:w-80 transition-all duration-200">
+          <nav v-if="headings.length" class="flex flex-col text-nowrap gap-0 items-start min-h-fit">
+            <a v-for="heading in headings" :key="heading.id" :href="`#${heading.id}`"
+              class="rounded-xl hover:bg-neutral-100 text-neutral-800! hover:text-black! transition-colors pr-3">
+              <div class="flex items-center text-sm py-0 text-inherit group-hover:py-1.5 transition-all duration-200"
+                :class="[`group-hover:pl-${2 + (Math.min(3, heading.level) - 1) * 3}`]">
+                <div class="flex justify-center w-4 mr-2.5">
+                  <div class="aspect-square rounded-full"
+                    :class="[heading.level === 1 ? 'bg-amber-400 w-1.75' : 'bg-neutral-200 w-1.25']"></div>
+                </div>
+                <span class="opacity-0 group-hover:opacity-100 transition-all duration-100">{{ heading.text }}</span>
+              </div>
+            </a>
+          </nav>
+          <p v-else class="toc-empty">{{ text.noSections }}</p>
+        </aside>
+      </div>
     </div>
 
     <!-- <section v-if="related.length" class="related-section page-container">

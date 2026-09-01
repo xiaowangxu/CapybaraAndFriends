@@ -33,7 +33,7 @@ const links = [
 .site-nav a {
   @apply rounded-full px-3 h-full text-sm 
   flex justify-center items-center
-  text-neutral-800 hover:text-black hover:bg-neutral-100 hover:font-bold
+  text-neutral-800 hover:text-black hover:bg-neutral-100
   transition-colors;
 }
 

@@ -11,7 +11,7 @@ const latest = computed(() => researchArticles().slice(0, 4))
 
 <template>
   <section id="latest" class="mx-auto w-full max-w-7xl mt-16 mb-28 px-10">
-    <div class="mb-10 flex items-end justify-between gap-6 px-8 pr-3">
+    <div class="mb-10 flex items-end justify-between gap-6 px-8 pr-3.5">
       <div>
         <h2 class="mt-2 text-5xl font-[450]">
           {{ siteText.home.latest }}
