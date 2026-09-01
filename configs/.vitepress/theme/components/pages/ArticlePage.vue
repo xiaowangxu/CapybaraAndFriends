@@ -57,7 +57,7 @@ onContentUpdated(refreshHeadings)
       </div>
     </header>
 
-    <div class="max-w-5xl px-10 mx-auto mb-32">
+    <div class="max-w-5xl px-10 mx-auto mb-34">
       <article class="article-content">
         <slot />
       </article>
