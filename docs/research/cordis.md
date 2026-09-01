@@ -92,9 +92,9 @@ Plugin / Fiber
 
 于是运行中的 Cordis Plugin / Fiber，可以先用一个简略的方式理解：
 
-$
+$$
 \boxed{Running\ Plugin/Fiber \approx Code + EffectScope + Context}
-$
+$$
 
 当然，这只是一个理解模型，不是说 `effectScope()` 可以替代整个 Cordis，更不是说两边的实现结构是一一对应的。
 
@@ -150,9 +150,9 @@ Cordis 选择更进一步：如果运行过程中 `llm` provider 消失，A 可�
 
 所以从这个角度，可以把它理解成在维护一个随时间变化的 dependency graph：
 
-$
+$$
 G_t
-$
+$$
 
 
 如果继续戴着 Vue 眼镜看，它可以变得非常直观：
@@ -460,13 +460,13 @@ return () => undoEverything()
 
 所以一个很朴素、但很重要的区别是：
 
-$
+$$
 \boxed{
 Registration\ Reversibility
 \neq
 Behavior\ Reversibility
 }
-$
+$$
 
 Cordis 对 lifecycle-scoped effect 的撤销和清理处理得很整齐。
 
@@ -476,15 +476,15 @@ Cordis 对 lifecycle-scoped effect 的撤销和清理处理得很整齐。
 
 假设插件 A：
 
-$
+$$
 x:3\rightarrow4
-$
+$$
 
 然后插件 B：
 
-$
+$$
 x:4\rightarrow7
-$
+$$
 
 现在 A 卸载。它的 disposer 如果非常忠诚地：$x \rightarrow 3$
 
@@ -528,15 +528,15 @@ $
 
 它只是从：
 
-$
+$$
 \boxed{\text{不同类型的组件}}
-$
+$$
 
 搬到了：
 
-$
+$$
 \boxed{\text{组件之间的协议}}
-$
+$$
 
 或者换句话说：
 
@@ -653,11 +653,11 @@ Cordis 可以让这些能力更容易组织、加载、替换和回收，这很�
 
 好的形式化往往能做到：
 
-$
+$$
 Many\ Phenomena
 \rightarrow
 Few\ Irreducible\ Structures.
-$
+$$
 
 也就是把很多看起来不同的现象映射到少数几个真正不可约的结构上，然后再推出一些只靠工程直觉不太容易得到的结论。
 
