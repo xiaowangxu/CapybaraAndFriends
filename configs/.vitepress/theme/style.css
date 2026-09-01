@@ -546,6 +546,7 @@ button {
   display: flow-root;
   margin: 1.45rem auto;
   overflow-x: auto;
+  overflow-y: hidden;
   color: #2d1e17;
 }
 
