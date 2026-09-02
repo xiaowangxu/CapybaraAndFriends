@@ -1,6 +1,6 @@
 ---
 layout: home
-title: 卡皮巴拉和它的朋友们
+title: 卡皮巴拉和朋友们
 description: 独立研究机构
 cardGrid:
   columns: 6
@@ -14,9 +14,26 @@ cardGrid:
       alt: ATPM 连续神经记忆系统结构图
       url: /research/atpm-birth-report
       linkLabel: 阅读报告
-      colSpan: 6
+      colSpan: 3
       rowSpan: 2
       imageFit: cover
+    - id: novel
+      template: pure-image
+      title: 停滞期第20年报告
+      image: /banners/novel_20260422.png
+      url: /research/停滞期第20年报告
+      colSpan: 1
+      rowSpan: 2
+      imageFit: contain
+      config:
+        background: rgb(49 49 49)
+    - id: atpm-report
+      template: text
+      title: 看到 Cordis，我想到了 Vue
+      description: 关于 DeepSeek Harness，可组合性，软件工程和 AGI
+      url: /research/cordis
+      colSpan: 2
+      rowSpan: 2
 hero:
   title: 探索本质，连接思想，创造影响。
   description: 我们是一个独立研究机构，围绕人工智能、机器学习与计算系统，记录问题、实验与仍未完成的答案。

@@ -39,11 +39,11 @@ onContentUpdated(refreshHeadings)
   <main class="article-page" id="article-content-main">
 
     <header class="pt-36 pb-20 px-5 flex flex-col items-center">
-      <img v-if="frontmatter.banner" class="w-150 bg-contain bg-no-repeat bg-center mb-12"
+      <img v-if="frontmatter.banner" class="max-w-150 max-h-80 bg-contain bg-no-repeat bg-center mb-12"
         :src="withBase(`/banners/${frontmatter.banner}`)">
       </img>
       <div class="mx-auto flex flex-col items-center gap-4">
-        <div class="flex gap-4 text-xs text-neutral-400">
+        <div class="flex gap-4 text-sm text-neutral-400">
           <span v-if="frontmatter.author">{{ frontmatter.author }}</span>
           <time v-if="frontmatter.date" :datetime="String(frontmatter.date)">{{
             formatDate(frontmatter.date) }}</time>
@@ -66,7 +66,7 @@ onContentUpdated(refreshHeadings)
       </article>
     </div>
 
-    <div class="fixed right-0 top-0 bottom-0 hidden flex-col justify-center items-end py-6 lg:flex">
+    <div class="fixed right-0 top-0 bottom-0 hidden flex-col justify-center items-end pt-22 pb-6 lg:flex">
       <div class="p-10 overflow-hidden group">
         <aside class="bg-white outline outline-neutral-300 shadow-lg/5 flex gap-2 overflow-y-auto overflow-x-hidden px-2 py-2 box-content max-h-full scrollbar-none
         w-8 rounded-2xl group-hover:w-80 transition-all duration-200">

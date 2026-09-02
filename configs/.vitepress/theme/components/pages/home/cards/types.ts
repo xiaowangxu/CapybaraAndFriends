@@ -1,7 +1,8 @@
-export type CardTemplateName = 'image' | 'text' | 'split'
+export type CardTemplateName = 'image' | 'text' | 'split' | 'pure-image'
 export type CardImageFit = 'cover' | 'contain'
 export type CardImagePosition = 'center' | 'top' | 'right' | 'bottom' | 'left'
 export type CardImageSide = 'left' | 'right'
+export type CardTone = 'dark' | 'light'
 
 export interface CardItem {
   id?: string
@@ -17,6 +18,8 @@ export interface CardItem {
   imageFit?: CardImageFit
   imagePosition?: CardImagePosition
   imageSide?: CardImageSide
+  tone?: CardTone
+  config?: Record<string, any> | Array<any>
 }
 
 export interface CardGridConfig {

@@ -72,7 +72,8 @@ const normalizedConfig = computed(() => {
       imagePosition: ['center', 'top', 'right', 'bottom', 'left'].includes(String(card.imagePosition))
         ? card.imagePosition!
         : 'center',
-      imageSide: card.imageSide === 'right' ? 'right' : 'left'
+      imageSide: card.imageSide === 'right' ? 'right' : 'left',
+      config: card.config
     } satisfies NormalizedCardItem]
   })
 

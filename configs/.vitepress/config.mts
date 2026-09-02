@@ -7,6 +7,7 @@ export default defineConfig({
   srcDir: '../docs',
   title: 'Capybara & Friends',
   description: 'sunwx的乱七八糟',
+  head: [['link', { rel: 'icon', href: '/CapybaraAndFriends/assets/capybara.png' }]],
   lang: 'zh-CN',
   cleanUrls: true,
   appearance: false,

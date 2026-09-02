@@ -4,6 +4,9 @@ export const siteText = {
     projects: '项目',
     about: '关于',
     search: '搜索',
+    github: 'GitHub',
+    zhihu: '知乎',
+    mail: '邮箱',
     menu: '菜单'
   },
   home: {
@@ -54,4 +57,7 @@ export const siteText = {
 export const routes = {
   home: '/',
   research: '/research/',
+  github: 'https://github.com/xiaowangxu',
+  zhihu: 'https://www.zhihu.com/people/sun-xiaowangxu',
+  mail: 'mailto:sunxiangwangxu@outlook.com'
 } as const
