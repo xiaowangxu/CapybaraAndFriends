@@ -658,7 +658,9 @@ ATPM 可以被端到端训练，并表现出正常的语言建模学习过程。
 
 ## Training traces
 
-待补充：200M ATPM · FineWeb
+![约 200M 参数 ATPM 在约 20B FineWeb tokens 上的语言建模训练损失曲线](/assets/atpm-loss-academic.svg)
+
+图：约 200M 参数 ATPM 的完整语言建模训练轨迹。主图使用断轴同时展示训练初期的快速下降与后期的缓慢收敛，局部视图放大了稳定训练阶段的变化。
 
 # 13. ATPM 与它的几个边界情况 {#endpoints}
 

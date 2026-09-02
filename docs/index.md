@@ -2,6 +2,21 @@
 layout: home
 title: 卡皮巴拉和它的朋友们
 description: 独立研究机构
+cardGrid:
+  columns: 6
+  rowHeight: 140
+  cards:
+    - id: atpm-report
+      template: image
+      title: ATPM
+      description: 从记忆操作到记忆动力学
+      image: /banners/atpm.png
+      alt: ATPM 连续神经记忆系统结构图
+      url: /research/atpm-birth-report
+      linkLabel: 阅读报告
+      colSpan: 6
+      rowSpan: 2
+      imageFit: cover
 hero:
   title: 探索本质，连接思想，创造影响。
   description: 我们是一个独立研究机构，围绕人工智能、机器学习与计算系统，记录问题、实验与仍未完成的答案。
