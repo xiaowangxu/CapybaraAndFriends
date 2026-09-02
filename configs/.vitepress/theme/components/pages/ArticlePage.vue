@@ -39,7 +39,7 @@ onContentUpdated(refreshHeadings)
   <main class="article-page" id="article-content-main">
 
     <header class="pt-36 pb-20 px-5 flex flex-col items-center">
-      <img v-if="frontmatter.banner" class="max-w-150 max-h-80 bg-contain bg-no-repeat bg-center mb-12"
+      <img v-if="frontmatter.banner" class="max-w-full max-h-80 bg-contain bg-no-repeat bg-center mb-12"
         :src="withBase(`/banners/${frontmatter.banner}`)">
       </img>
       <div class="mx-auto flex flex-col items-center gap-4">
