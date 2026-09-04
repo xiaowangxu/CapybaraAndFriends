@@ -16,5 +16,13 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()]
+  },
+  vue: {
+    template: {
+      compilerOptions: {
+        // Treat shader-doodle as a native custom element
+        isCustomElement: (tag) => tag === 'shader-doodle'
+      }
+    }
   }
 })

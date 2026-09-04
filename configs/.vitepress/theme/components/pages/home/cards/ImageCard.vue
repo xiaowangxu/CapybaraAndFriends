@@ -20,11 +20,13 @@ const imageFailed = ref(false)
       class="image-card__media hover:scale-105 duration-250 transition-transform pb-1 mask-radial-[50%_90%] mask-radial-from-80%"
       :class="`image-card__media--${card.imageFit}`" :src="resolveCardUrl(card.image)" :alt="card.alt"
       :style="{ objectPosition: card.imagePosition }" @error="imageFailed = true">
-    <div v-if="card.title || card.description" class="pointer-events-none absolute inset-x-0 bottom-0 h-21 overflow-hidden rounded-b-2xl bg-white/97 mask-t-from-50%
-    flex items-center px-5 pt-8">
+    <div v-if="card.title || card.description" class="pointer-events-none absolute inset-x-0 bottom-0 h-21 overflow-hidden rounded-b-2xl mask-t-from-50%
+    flex items-center px-5 pt-8" :class="[card.tone === 'light' ? 'bg-white/97' : 'bg-neutral-700/97']">
       <div class="text-nowrap overflow-hidden">
-        <span class="font-medium text-black">{{ card.title }}</span>&nbsp;
-        <span class="text-sm text-neutral-500 truncate">{{ card.description }}</span>
+        <span class="font-medium" :class="[card.tone === 'light' ? 'text-black' : 'text-white']">{{ card.title
+        }}</span>&nbsp;
+        <span class="text-sm truncate" :class="[card.tone === 'light' ? 'text-neutral-500' : 'text-neutral-400']">{{
+          card.description }} {{ card.tone }}</span>
       </div>
     </div>
   </CardShell>

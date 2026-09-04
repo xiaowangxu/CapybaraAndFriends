@@ -1,4 +1,4 @@
-export type CardTemplateName = 'image' | 'text' | 'split' | 'pure-image'
+export type CardTemplateName = 'image' | 'text' | 'split' | 'pure-image' | 'shadertoy-text'
 export type CardImageFit = 'cover' | 'contain'
 export type CardImagePosition = 'center' | 'top' | 'right' | 'bottom' | 'left'
 export type CardImageSide = 'left' | 'right'
@@ -19,6 +19,7 @@ export interface CardItem {
   imagePosition?: CardImagePosition
   imageSide?: CardImageSide
   tone?: CardTone
+  background?: string
   config?: Record<string, any> | Array<any>
 }
 
@@ -39,4 +40,5 @@ export interface NormalizedCardItem extends CardItem {
   imageFit: CardImageFit
   imagePosition: CardImagePosition
   imageSide: CardImageSide
+  tone: CardTone
 }

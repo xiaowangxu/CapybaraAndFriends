@@ -3,12 +3,14 @@ import PureImageCard from './PureImageCard.vue'
 import ImageCard from './ImageCard.vue'
 import SplitCard from './SplitCard.vue'
 import TextCard from './TextCard.vue'
+import ShaderToyTextCard from './ShaderToyTextCard.vue'
 import type { CardTemplateName } from './types'
 
 export const cardTemplates: Record<CardTemplateName, Component> = {
   image: ImageCard,
   'pure-image': PureImageCard,
   text: TextCard,
+  'shadertoy-text': ShaderToyTextCard,
   split: SplitCard
 }
 

@@ -13,7 +13,9 @@ const tag = computed(() => href.value ? 'a' : 'article')
 </script>
 
 <template>
-  <component :is="tag" class="contain-paint block w-full h-full bg-white relative rounded-2xl overflow-hidden border border-neutral-300 hover:shadow-2xl/5 hover:-translate-y-0.5 transition duration-250" :href="href"
+  <component :is="tag"
+    class="contain-paint block w-full h-full relative rounded-2xl overflow-hidden border border-neutral-300 hover:shadow-2xl/5 hover:-translate-y-0.5 transition duration-250"
+    :class="[card.tone === 'light' ? 'bg-white' : 'bg-neutral-700']" :style="{ background: card.background }" :href="href"
     :target="isExternal ? '_blank' : undefined" :rel="isExternal ? 'noopener noreferrer' : undefined"
     :aria-label="href ? card.title : undefined">
     <slot />

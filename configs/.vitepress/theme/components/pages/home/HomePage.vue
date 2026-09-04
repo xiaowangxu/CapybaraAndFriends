@@ -7,6 +7,7 @@ import type { CardGridConfig } from './cards'
 
 const { frontmatter } = useData()
 const cardGrid = computed(() => frontmatter.value.cardGrid as CardGridConfig | undefined)
+
 </script>
 
 <template>
@@ -18,7 +19,7 @@ const cardGrid = computed(() => frontmatter.value.cardGrid as CardGridConfig | u
     </section>
 
     <section class="flex flex-col justify-center items-center max-w-7xl mx-auto mt-16 mb-10 px-6">
-      <CardGrid v-if="cardGrid" :config="cardGrid"/>
+      <CardGrid v-if="cardGrid" :config="cardGrid" />
     </section>
 
     <section class="flex flex-col justify-center items-center">

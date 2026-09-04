@@ -73,6 +73,7 @@ const normalizedConfig = computed(() => {
         ? card.imagePosition!
         : 'center',
       imageSide: card.imageSide === 'right' ? 'right' : 'left',
+      tone: card.tone ?? 'light',
       config: card.config
     } satisfies NormalizedCardItem]
   })
