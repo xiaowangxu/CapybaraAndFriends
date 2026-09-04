@@ -26,7 +26,7 @@ const imageFailed = ref(false)
         <span class="font-medium" :class="[card.tone === 'light' ? 'text-black' : 'text-white']">{{ card.title
         }}</span>&nbsp;
         <span class="text-sm truncate" :class="[card.tone === 'light' ? 'text-neutral-500' : 'text-neutral-400']">{{
-          card.description }} {{ card.tone }}</span>
+          card.description }}</span>
       </div>
     </div>
   </CardShell>
