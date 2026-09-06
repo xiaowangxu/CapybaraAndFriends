@@ -1,30 +1,26 @@
 <script setup lang="ts">
-import { ArrowUpRight, GitBranch, Rss } from '@lucide/vue'
+import { ArrowUpRight, GitBranch, Mail, Rss } from '@lucide/vue'
 import { withBase } from 'vitepress'
 import { routes, siteText } from '../../data/site'
 
+const extraLinks = [
+  { label: siteText.nav.github, href: routes.github, color: '#ffffff', icon: GitBranch },
+  { label: siteText.nav.zhihu, href: routes.zhihu, color: '#1772f6', icon: undefined },
+  { label: siteText.nav.mail, href: routes.mail, color: '#fe2222', icon: Mail },
+]
 </script>
 
 <template>
-  <footer class="bg-neutral-900 px-20 py-6 flex justify-end gap-24 items-center">
-    <a :href="withBase(routes.home)" class="text-white! text-xl font-[Georgia] italic mr-auto">Capybara &amp; Friends</a>
-    <!-- <div class="text-white flex gap-2">
-      <a class="footer-link" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
-        <GitBranch :size="17" :stroke-width="1.8" />
-        <span>GitHub</span>
+  <footer class="bg-neutral-900 px-20 pr-8 py-6 flex justify-end gap-24 items-center">
+    <!-- <a :href="withBase(routes.home)" class="text-white! text-xl font-[Georgia] italic mr-auto">Capybara &amp;
+      Friends</a> -->
+    <div class="flex gap-0">
+      <a v-for="link in extraLinks"
+        class="flex gap-2 items-center hover:bg-neutral-700 px-4 py-2 rounded-full group text-white! hover:text-(--color)! transition-colors"
+        :href="link.href" target="_blank" :style="{ '--color': link.color }">
+        <component :is="link.icon ?? ArrowUpRight" :size="17" :stroke-width="1.8" class="text-inherit" />
+        <span class="">{{ link.label }}</span>
       </a>
-      <a class="footer-link" :href="withBase('/feed.xml')" aria-label="RSS">
-        <Rss :size="17" :stroke-width="1.8" />
-        <span>RSS</span>
-      </a>
-    </div> -->
+    </div>
   </footer>
 </template>
-
-<style scoped>
-@reference "../../style.css";
-
-.footer-link {
-  @apply flex gap-2 items-center hover:bg-neutral-700 transition-colors px-3 py-2 rounded-xl;
-}
-</style>
