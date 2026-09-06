@@ -628,15 +628,15 @@ $$
 
 # 11. 合成任务上的参数匹配对比 {#synthetic-benchmarks}
 
-下面比较 ATPM-v2 与 GDN、LSTM、Transformer 三个参数量匹配的模型。所有结果均来自seed 0，并在训练 3000 step 后评估。IID 与训练分布一致；OOD 和 Stress 逐步提高分布偏移与任务难度。
+下面比较 ATPM-v2、ATPM-v4.1 与 GDN、LSTM、Transformer。所有结果均来自 seed 0，并在训练 3000 step 后评估。IID 与训练分布一致；OOD 和 Stress 逐步提高分布偏移与任务难度。
 
 `Exact match` 和 `Token Accuracy` 采用 autoregressive evaluation，`CE` 采用 teacher-forced evaluation。`mixed_all` 表示九类任务混合训练后的宏平均，不重复计入其中的单项结果。
 
 <AtpmBenchmarkExplorer />
 
-如果对十组运行做简单平均，ATPM-v2 在 IID 上的 autoregressive exact match 为 88.7%，高于这里保留的三个对照模型。它在 KV recall、overwrite 和 rebind 上较稳定：前两项在三个 split 中均达到 100%，rebind 在 Stress 下仍为 92.4%。这并不意味着每项任务都领先，例如 pointer chase 的 IID exact match 只有 41.9%，低于 GDN 的 58.1%。
+如果对十组运行做简单平均，ATPM-v4.1 在 IID 上的 autoregressive exact match 为 92.5%，ATPM-v2 为 88.7%。v4.1 将 pointer chase 的 IID exact match 从 41.9% 提高到 70.3%；KV recall、overwrite 和 rebind 仍保持稳定。
 
-Stress 下，ATPM-v2 的平均 token accuracy 为 43.8%，exact match 为 33.0%，在这四个模型中均最高。不过，两者之间的差距说明模型在困难样本上仍能保留一部分 token 级信息，却经常无法完整生成整个答案。因此，这组实验支持“ATPM-v2 已能学习多种写入与检索操作”，但不能据此认为它在每种合成记忆任务上都占优。
+Stress 下，ATPM-v4.1 的平均 token accuracy 为 45.6%，exact match 为 34.5%；ATPM-v2 分别为 43.8% 和 33.0%。token accuracy 与 exact match 之间仍有明显差距：模型在困难样本上能保留一部分 token 级信息，但经常无法完整生成整个答案。
 
 # 12. 从合成记忆到真实语言建模 {#language-modeling}
 

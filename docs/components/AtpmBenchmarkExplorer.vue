@@ -134,7 +134,7 @@ function isBest(task: TaskId, model: ModelId) {
     <div class="benchmark__chart" role="img"
       :aria-label="`${TASK_LABELS[selectedTask]} 的 ${SPLIT_LABELS[selectedSplit]} ${activeMetric.label} 模型比较`">
       <div v-for="record in chartRecords" :key="record.model" class="benchmark__bar-row"
-        :class="{ 'is-atpm': record.model === 'atpm_v2' }">
+        :class="{ 'is-atpm': record.model.startsWith('atpm_') }">
         <span class="benchmark__model-name">{{ MODEL_LABELS[record.model] }}</span>
         <span class="benchmark__track" aria-hidden="true">
           <span class="benchmark__fill" :style="{ width: chartWidth(record) }"></span>
@@ -166,7 +166,7 @@ function isBest(task: TaskId, model: ModelId) {
             </td>
             <td v-for="model in MODEL_IDS" :key="model" :class="{
               'is-best': isBest(task, model),
-              'is-atpm': model === 'atpm_v2',
+              'is-atpm': model.startsWith('atpm_'),
             }">
               {{ formatValue(metricValue(getRecord(model, task, selectedSplit))) }}
             </td>
