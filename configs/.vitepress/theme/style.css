@@ -3,18 +3,18 @@
 @source "../../../docs/**/*.md";
 
 :root {
-  --cf-bg: oklch(96% 0 0);
+  --cf-bg: oklch(98% 0 0);
   --cf-surface: #ffffff;
-  --cf-border: #dedede;
+  --cf-border: oklch(87% 0 none);
   --cf-border-strong: #cfcfcf;
   --cf-text: #000000;
   --cf-muted: #8a8a8a;
   --cf-soft: #f1f1f1;
   --cf-accent: #214e97;
   --cf-accent-soft: #f5efeb;
-  --cf-code-bg: #272522;
-  --cf-code-border: #3a3632;
-  --cf-code-text: #f2eee9;
+  --cf-code-bg: #ffffff;
+  --cf-code-border: #d4d4d4;
+  --cf-code-text: #222222;
   --cf-shadow: 0 18px 50px rgba(0, 0, 0, .055);
   --cf-shadow-hover: 0 20px 55px rgba(0, 0, 0, .095);
   --cf-radius-xl: 1.5rem;
@@ -317,7 +317,7 @@ button {
 }
 
 .article-content pre {
-  margin: 1.4rem 0;
+  margin-block: 1.4rem;
   overflow-x: auto;
   border: 1px solid var(--cf-code-border);
   border-radius: .95rem;
@@ -346,12 +346,11 @@ button {
 .article-content [class^="language-"],
 .article-content [class*=" language-"] {
   position: relative;
-  margin: 1.4rem 0;
+  margin-block: 1.4rem;
   overflow: hidden;
   border: 1px solid var(--cf-code-border);
   border-radius: .95rem;
   background: var(--cf-code-bg);
-  box-shadow: 0 12px 30px rgba(33, 27, 23, .08);
 }
 
 .article-content [class^="language-"]>.lang,
@@ -429,7 +428,7 @@ button {
 
 
 .article-content pre.shiki code span {
-  color: var(--shiki-dark, var(--cf-code-text)) !important;
+  color: var(--shiki-light, var(--cf-code-text)) !important;
 }
 
 .article-content pre.shiki code .line {
@@ -442,12 +441,11 @@ button {
 }
 
 .article-content .vp-code-group {
-  margin: 1.5rem 0 2rem;
+  margin-block: 1.4rem;
   overflow: hidden;
   border: 1px solid var(--cf-code-border);
   border-radius: .95rem;
   background: var(--cf-code-bg);
-  box-shadow: 0 12px 30px rgba(33, 27, 23, .08);
 }
 
 .article-content .vp-code-group .tabs {
@@ -648,8 +646,7 @@ button {
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 2.4rem auto;
-  border-radius: var(--cf-radius-md);
+  margin: 2rem auto;
 }
 
 .article-content kbd {
@@ -670,8 +667,7 @@ button {
 }
 
 .article-content hr {
-  width: 100%;
-  margin: 4rem 0;
+  margin-block: 4rem;
   border: 0;
   border-top: 1px solid var(--cf-border);
 }

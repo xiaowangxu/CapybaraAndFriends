@@ -56,8 +56,8 @@ function clearFilters() {
         </p>
       </header>
 
-      <!-- <section class="mt-12" aria-label="研究筛选">
-        <div class="flex flex-col gap-3 border-y border-[#dedede] py-4 sm:flex-row sm:items-center">
+      <section class="mb-11 px-7" aria-label="研究筛选">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
           <label class="relative min-w-0 flex-1">
             <span class="sr-only">{{ siteText.research.search }}</span>
             <Search class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#766d68]" :size="17" :stroke-width="1.8" aria-hidden="true" />
@@ -82,7 +82,7 @@ function clearFilters() {
           </label>
         </div>
 
-        <div class="flex min-h-12 flex-wrap items-center justify-between gap-3 py-4">
+        <!-- <div class="flex min-h-12 flex-wrap items-center justify-between gap-3 py-4">
           <p class="text-sm text-[#766d68]">
             <span class="font-medium text-black">{{ filteredArticles.length }}</span>
             {{ siteText.research.results }}
@@ -96,8 +96,8 @@ function clearFilters() {
             <X :size="15" :stroke-width="1.8" aria-hidden="true" />
             {{ siteText.research.clearFilters }}
           </button>
-        </div>
-      </section> -->
+        </div> -->
+      </section>
 
       <section aria-label="文章列表">
         <div v-if="filteredArticles.length" class="space-y-1">

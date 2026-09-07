@@ -60,13 +60,13 @@ onContentUpdated(refreshHeadings)
       </div>
     </header>
 
-    <div class="max-w-5xl px-10 mx-auto mb-34">
+    <div class="max-w-380 px-10 mx-auto mb-34">
       <article class="article-content">
         <slot />
       </article>
     </div>
 
-    <div class="fixed right-0 top-0 bottom-0 hidden flex-col justify-center items-end pt-22 pb-6 lg:flex">
+    <div v-if="headings.length > 1" class="fixed right-0 top-0 bottom-0 hidden flex-col justify-center items-end pt-22 pb-6 lg:flex">
       <div class="p-10 overflow-hidden group">
         <aside class="bg-white outline outline-neutral-300 shadow-lg/5 flex gap-2 overflow-y-auto overflow-x-hidden px-2 py-2 box-content max-h-full scrollbar-none
         w-8 rounded-2xl group-hover:w-80 transition-all duration-200">
@@ -114,3 +114,21 @@ onContentUpdated(refreshHeadings)
     </section> -->
   </main>
 </template>
+
+<style>
+@reference '../../style.css';
+
+.article-content > div > div > * {
+  @apply max-w-4xl mx-auto;
+}
+
+.article-content hr,
+.article-content p:has(> img) {
+  @apply max-w-full! mx-0!;
+}
+
+.article-content p > img {
+  @apply rounded-xl!;
+}
+
+</style>
