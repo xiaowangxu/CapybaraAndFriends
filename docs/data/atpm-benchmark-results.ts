@@ -1,4 +1,4 @@
-export const MODEL_IDS = ['atpm_v2', 'atpm_v4_1', 'gdn', 'lstm', 'transformer'] as const
+export const MODEL_IDS = ['atpm_v2', 'atpm_v4_1', 'atpm_v6', 'gdn', 'lstm', 'transformer'] as const
 export const TASK_IDS = ['kv_recall', 'mqar', 'overwrite', 'rebind', 'pointer_chase', 'associative_sequence', 'delayed_copy', 'sort', 'argsort', 'mixed_all'] as const
 export const SPLIT_IDS = ['iid', 'ood', 'stress'] as const
 
@@ -20,6 +20,7 @@ export interface BenchmarkRecord {
 export const MODEL_LABELS: Record<ModelId, string> = {
   atpm_v2: 'ATPM-v2',
   atpm_v4_1: 'ATPM-v4.1',
+  atpm_v6: 'ATPM-v6',
   gdn: 'GDN',
   lstm: 'LSTM',
   transformer: 'Transformer',
@@ -50,7 +51,7 @@ export const BENCHMARK_META = {
   steps: 3000,
   accuracyEvaluation: 'autoregressive',
   crossEntropyEvaluation: 'teacher_forced',
-  sources: ['runs/eval.txt', 'runs/exp/atpm_v2/*_eval.jsonl', 'runs/exp/atpm_v4_1_evidence_seed0/*_eval.jsonl'],
+  sources: ['runs/eval.txt', 'runs/exp/atpm_v2/*_eval.jsonl', 'runs/exp/atpm_v4_1_evidence_seed0/*_eval.jsonl', 'runs/exp/atpm_v6/*_eval.jsonl'],
 } as const
 
 export const BENCHMARK_RECORDS = [
@@ -204,4 +205,34 @@ export const BENCHMARK_RECORDS = [
   { model: 'atpm_v4_1', task: 'mixed_all', split: 'iid', exactMatch: 0.835291998721511, tokenAccuracy: 0.898429008782823, crossEntropy: 0.15405994430286424, step: 3000 },
   { model: 'atpm_v4_1', task: 'mixed_all', split: 'ood', exactMatch: 0.40039950923972356, tokenAccuracy: 0.5975228105838469, crossEntropy: 1.2812554434350139, step: 3000 },
   { model: 'atpm_v4_1', task: 'mixed_all', split: 'stress', exactMatch: 0.34084537321307795, tokenAccuracy: 0.44458360203156416, crossEntropy: 2.720966453431158, step: 3000 },
+  { model: 'atpm_v6', task: 'kv_recall', split: 'iid', exactMatch: 1, tokenAccuracy: 1, crossEntropy: 1.895427518405768e-8, step: 3000 },
+  { model: 'atpm_v6', task: 'kv_recall', split: 'ood', exactMatch: 1, tokenAccuracy: 1, crossEntropy: 3.758072470816387e-8, step: 3000 },
+  { model: 'atpm_v6', task: 'kv_recall', split: 'stress', exactMatch: 1, tokenAccuracy: 1, crossEntropy: 7.548925742639767e-8, step: 3000 },
+  { model: 'atpm_v6', task: 'mqar', split: 'iid', exactMatch: 1, tokenAccuracy: 1, crossEntropy: 2.15934736665007e-8, step: 3000 },
+  { model: 'atpm_v6', task: 'mqar', split: 'ood', exactMatch: 0, tokenAccuracy: 0.3793253943512688, crossEntropy: 10.727806772663136, step: 3000 },
+  { model: 'atpm_v6', task: 'mqar', split: 'stress', exactMatch: 0, tokenAccuracy: 0.23560350122850124, crossEntropy: 14.077972533970783, step: 3000 },
+  { model: 'atpm_v6', task: 'overwrite', split: 'iid', exactMatch: 1, tokenAccuracy: 1, crossEntropy: 2.8342005379045075e-8, step: 3000 },
+  { model: 'atpm_v6', task: 'overwrite', split: 'ood', exactMatch: 1, tokenAccuracy: 1, crossEntropy: 2.5391576357947088e-8, step: 3000 },
+  { model: 'atpm_v6', task: 'overwrite', split: 'stress', exactMatch: 1, tokenAccuracy: 1, crossEntropy: 2.2798774708121528e-8, step: 3000 },
+  { model: 'atpm_v6', task: 'rebind', split: 'iid', exactMatch: 1, tokenAccuracy: 1, crossEntropy: 1.6659496694160226e-8, step: 3000 },
+  { model: 'atpm_v6', task: 'rebind', split: 'ood', exactMatch: 1, tokenAccuracy: 1, crossEntropy: 2.8371807637483927e-8, step: 3000 },
+  { model: 'atpm_v6', task: 'rebind', split: 'stress', exactMatch: 1, tokenAccuracy: 1, crossEntropy: 1.7485570876374368e-7, step: 3000 },
+  { model: 'atpm_v6', task: 'pointer_chase', split: 'iid', exactMatch: 0.7205, tokenAccuracy: 0.7205, crossEntropy: 0.5843287854194641, step: 3000 },
+  { model: 'atpm_v6', task: 'pointer_chase', split: 'ood', exactMatch: 0.2265, tokenAccuracy: 0.2265, crossEntropy: 1.9469749088287354, step: 3000 },
+  { model: 'atpm_v6', task: 'pointer_chase', split: 'stress', exactMatch: 0.092, tokenAccuracy: 0.092, crossEntropy: 2.548732563018799, step: 3000 },
+  { model: 'atpm_v6', task: 'associative_sequence', split: 'iid', exactMatch: 0.9885, tokenAccuracy: 0.9959965684872748, crossEntropy: 0.0136208342156736, step: 3000 },
+  { model: 'atpm_v6', task: 'associative_sequence', split: 'ood', exactMatch: 0.4065, tokenAccuracy: 0.730183161459135, crossEntropy: 1.4000458073040414, step: 3000 },
+  { model: 'atpm_v6', task: 'associative_sequence', split: 'stress', exactMatch: 0.024, tokenAccuracy: 0.3172231107556977, crossEntropy: 4.2532335209959165, step: 3000 },
+  { model: 'atpm_v6', task: 'delayed_copy', split: 'iid', exactMatch: 0.999, tokenAccuracy: 0.9998565382684169, crossEntropy: 0.000527025837413595, step: 3000 },
+  { model: 'atpm_v6', task: 'delayed_copy', split: 'ood', exactMatch: 0.1145, tokenAccuracy: 0.618028838635013, crossEntropy: 1.753300261684886, step: 3000 },
+  { model: 'atpm_v6', task: 'delayed_copy', split: 'stress', exactMatch: 0, tokenAccuracy: 0.3148094771430218, crossEntropy: 5.193384082260748, step: 3000 },
+  { model: 'atpm_v6', task: 'sort', split: 'iid', exactMatch: 0.8875, tokenAccuracy: 0.9483147245374011, crossEntropy: 0.040992953459791315, step: 3000 },
+  { model: 'atpm_v6', task: 'sort', split: 'ood', exactMatch: 0.12, tokenAccuracy: 0.3684435880967673, crossEntropy: 1.093847203881077, step: 3000 },
+  { model: 'atpm_v6', task: 'sort', split: 'stress', exactMatch: 0, tokenAccuracy: 0.0552626876340243, crossEntropy: 4.558987488188384, step: 3000 },
+  { model: 'atpm_v6', task: 'argsort', split: 'iid', exactMatch: 0.7785, tokenAccuracy: 0.9223155796069495, crossEntropy: 0.09850600416064113, step: 3000 },
+  { model: 'atpm_v6', task: 'argsort', split: 'ood', exactMatch: 0.027, tokenAccuracy: 0.35725542107917296, crossEntropy: 1.6449436028496816, step: 3000 },
+  { model: 'atpm_v6', task: 'argsort', split: 'stress', exactMatch: 0, tokenAccuracy: 0.08820133466408345, crossEntropy: 4.410149923374263, step: 3000 },
+  { model: 'atpm_v6', task: 'mixed_all', split: 'iid', exactMatch: 0.8515083099042324, tokenAccuracy: 0.9269812729509758, crossEntropy: 0.12263250784116209, step: 3000 },
+  { model: 'atpm_v6', task: 'mixed_all', split: 'ood', exactMatch: 0.40230939901519247, tokenAccuracy: 0.6054256997728471, crossEntropy: 1.3067824258980711, step: 3000 },
+  { model: 'atpm_v6', task: 'mixed_all', split: 'stress', exactMatch: 0.3456586231959143, tokenAccuracy: 0.4470070143991818, crossEntropy: 2.835547664190201, step: 3000 },
 ] satisfies readonly BenchmarkRecord[]

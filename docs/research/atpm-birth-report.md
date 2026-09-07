@@ -628,7 +628,7 @@ $$
 
 # 11. 合成任务上的参数匹配对比 {#synthetic-benchmarks}
 
-下面比较 ATPM-v2、ATPM-v4.1 与 GDN、LSTM、Transformer。所有结果均来自 seed 0，并在训练 3000 step 后评估。IID 与训练分布一致；OOD 和 Stress 逐步提高分布偏移与任务难度。
+下面比较 ATPM-v2、ATPM-v4.1、ATPM-v6 与 GDN、LSTM、Transformer。所有结果均来自 seed 0，并在训练 3000 step 后评估。IID 与训练分布一致；OOD 和 Stress 逐步提高分布偏移与任务难度。
 
 `Exact match` 和 `Token Accuracy` 采用 autoregressive evaluation，`CE` 采用 teacher-forced evaluation。`mixed_all` 表示九类任务混合训练后的宏平均，不重复计入其中的单项结果。
 
