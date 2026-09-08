@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="505" viewBox="0 0 1100 505" role="img"><title>工作寄存器沿深度传递；各 token 的读写可以并行</title><desc>每次 forward 从零开始；横向为网络深度，纵向为 token 位置。此图省略公开 Attention 路径。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#596965"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#263a38}.title{font-size:29px;font-weight:700}.sub{font-size:17px;fill:#596965}.label{font-size:20px}.small{font-size:17px}</style>
+<text x="40" y="54" class="title">工作寄存器沿深度传递；各 token 的读写可以并行</text><text x="40" y="90" class="sub">每次 forward 从零开始；横向为网络深度，纵向为 token 位置。此图省略公开 Attention 路径。</text>
+<text x="340" y="151" class="label" text-anchor="middle">第 1 个 FFN</text>
+<text x="615" y="151" class="label" text-anchor="middle">第 2 个 FFN</text>
+<text x="890" y="151" class="label" text-anchor="middle">第 3 个 FFN</text>
+<text x="40" y="228" class="label">token 1：w₀ = 0</text>
+<rect x="235" y="190" width="210" height="60" rx="10" fill="#e8f2ee" stroke="#267c6d"/>
+<text x="340.0" y="227.0" text-anchor="middle" class="label">读取 / 计算 / 更新</text>
+<path d="M445 220 H505" fill="none" stroke="#596965" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="510" y="190" width="210" height="60" rx="10" fill="#e8f2ee" stroke="#267c6d"/>
+<text x="615.0" y="227.0" text-anchor="middle" class="label">读取 / 计算 / 更新</text>
+<path d="M720 220 H780" fill="none" stroke="#596965" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="785" y="190" width="210" height="60" rx="10" fill="#e8f2ee" stroke="#267c6d"/>
+<text x="890.0" y="227.0" text-anchor="middle" class="label">读取 / 计算 / 更新</text>
+<path d="M185 220 H232" fill="none" stroke="#596965" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="40" y="323" class="label">token 2：w₀ = 0</text>
+<rect x="235" y="285" width="210" height="60" rx="10" fill="#e8f2ee" stroke="#267c6d"/>
+<text x="340.0" y="322.0" text-anchor="middle" class="label">读取 / 计算 / 更新</text>
+<path d="M445 315 H505" fill="none" stroke="#596965" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="510" y="285" width="210" height="60" rx="10" fill="#e8f2ee" stroke="#267c6d"/>
+<text x="615.0" y="322.0" text-anchor="middle" class="label">读取 / 计算 / 更新</text>
+<path d="M720 315 H780" fill="none" stroke="#596965" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="785" y="285" width="210" height="60" rx="10" fill="#e8f2ee" stroke="#267c6d"/>
+<text x="890.0" y="322.0" text-anchor="middle" class="label">读取 / 计算 / 更新</text>
+<path d="M185 315 H232" fill="none" stroke="#596965" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="40" y="418" class="label">token 3：w₀ = 0</text>
+<rect x="235" y="380" width="210" height="60" rx="10" fill="#e8f2ee" stroke="#267c6d"/>
+<text x="340.0" y="417.0" text-anchor="middle" class="label">读取 / 计算 / 更新</text>
+<path d="M445 410 H505" fill="none" stroke="#596965" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="510" y="380" width="210" height="60" rx="10" fill="#e8f2ee" stroke="#267c6d"/>
+<text x="615.0" y="417.0" text-anchor="middle" class="label">读取 / 计算 / 更新</text>
+<path d="M720 410 H780" fill="none" stroke="#596965" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="785" y="380" width="210" height="60" rx="10" fill="#e8f2ee" stroke="#267c6d"/>
+<text x="890.0" y="417.0" text-anchor="middle" class="label">读取 / 计算 / 更新</text>
+<path d="M185 410 H232" fill="none" stroke="#596965" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="40" y="481" class="small">图中的工作状态没有 token 间的直接连边；跨 token 交互仍由公开的因果 Attention 完成。</text>
+</svg>

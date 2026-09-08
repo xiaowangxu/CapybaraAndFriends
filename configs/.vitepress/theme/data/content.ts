@@ -6,7 +6,8 @@ export const docs = contentData as DocRecord[]
 
 export function researchArticles() {
   return docs
-    .filter(record => record.frontmatter.layout === 'article' && record.frontmatter.status === 'Published')
+    .filter(record => record.frontmatter.layout === 'article' && (import.meta.env.DEV || record.frontmatter.status === 'Published'))
+    .map(record => import.meta.env.DEV && record.frontmatter.status !== 'Published' ? { ...record, frontmatter: { ...record.frontmatter, title: `(DEV) ${record.frontmatter.title}` } } : record)
     .sort((a, b) => {
       const aDate = Date.parse(String(a.frontmatter.date || '')) || 0
       const bDate = Date.parse(String(b.frontmatter.date || '')) || 0
