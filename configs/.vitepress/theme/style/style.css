@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@source "./**/*.{vue,ts}";
-@source "../../../docs/**/*.md";
+@source "../**/*.{vue,ts}";
+@source "../../../../docs/**/*.md";
 
 :root {
   --cf-bg: oklch(98% 0 0);
@@ -31,6 +31,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable both-edges;
   background: var(--cf-bg);
 }
 

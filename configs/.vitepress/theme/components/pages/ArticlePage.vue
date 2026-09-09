@@ -116,7 +116,7 @@ onContentUpdated(refreshHeadings)
 </template>
 
 <style>
-@reference '../../style.css';
+@reference '../../style/style.css';
 
 .article-content > div > div > * {
   @apply max-w-4xl mx-auto;

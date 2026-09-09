@@ -118,7 +118,7 @@ const cardStyle = (card: NormalizedCardItem) => ({
 </template>
 
 <style scoped>
-@reference '../../../style.css';
+@reference '../../../style/style.css';
 
 .card-grid {
   @apply gap-3;
