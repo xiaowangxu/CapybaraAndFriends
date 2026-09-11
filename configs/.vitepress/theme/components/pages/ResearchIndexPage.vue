@@ -46,7 +46,7 @@ function clearFilters() {
 
 <template>
   <main class="overflow-hidden">
-    <div class="mx-auto w-full max-w-7xl px-10 mt-36 mb-34 flex flex-col">
+    <div class="mx-auto w-full max-w-7xl px-10 mt-38 mb-34 flex flex-col">
       <header class="flex flex-col items-start gap-5 pl-8 mb-11">
         <h1 class="text-5xl font-[450]">
           {{ pageTitle }}

@@ -2,8 +2,9 @@
 import { withBase } from 'vitepress'
 import { routes, siteText } from '../../data/site'
 import BrandMark from '../ui/BrandMark.vue'
-import { ArrowUpRight, GitBranch, Mail, TextAlignJustify } from '@lucide/vue';
+import { ArrowUpRight, ChevronsUp, ChevronUpCircle, ChevronUpSquare, GitBranch, Mail, TextAlignJustify } from '@lucide/vue';
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { vOnClickOutside } from '@vueuse/components';
 
 const links = [
   { label: siteText.nav.research, href: routes.research },
@@ -59,15 +60,20 @@ function clickOutside() {
   }
 }
 
+function scrollToTop() {
+  window.scrollTo(0, 0)
+}
+
 </script>
 
 <template>
   <header class="px-10 pt-6 pb-4 fixed top-0 flex z-100 w-full overflow-hidden">
-    <div class="transition-[width] duration-400 delay-100 ease-in-out" :class="[expanded ? 'w-[calc((100%-1400px)/2)]' : 'w-0']">
+    <div class="transition-[width] duration-400 delay-100 ease-in-out"
+      :class="[expanded ? 'w-[calc((100%-1400px)/2)]' : 'w-0']">
     </div>
     <div ref="dynamicIsland"
-      class="bg-white outline outline-neutral-300 rounded-full shadow-lg/5 flex overflow-hidden transition-[width] duration-350 ease-in-out"
-      :class="[expanded ? 'w-[1400px]' : 'w-[106px]']">
+      class="bg-white outline outline-neutral-300 rounded-full shadow-lg/5 flex overflow-hidden transition-[width] duration-350 ease-in-out" v-on-click-outside="clickOutside"
+      :class="[expanded ? 'w-[1400px]' : 'w-[146px]']">
       <a :href="withBase(routes.home)"
         class="inline-flex min-h-14 max-h-14 h-14 w-12 min-w-12.5 justify-end items-center mr-2"
         aria-label="Capybara & Friends">
@@ -75,10 +81,13 @@ function clickOutside() {
       </a>
       <Transition name="slide-fade" mode="out-in">
         <nav v-if="!expanded" class="flex items-center min-h-14 max-h-14 h-14 p-2 pl-0">
-          <a
-            class="rounded-full h-full aspect-square text-sm flex justify-center items-center text-neutral-400! hover:text-black! hover:bg-neutral-100 transition-colors text-nowrap"
+          <a class="rounded-full h-full aspect-square text-sm flex justify-center items-center text-neutral-400! hover:text-black! hover:bg-neutral-100 transition-colors text-nowrap"
             @click="expanded = true">
             <TextAlignJustify :size="20" :stroke-width="1.8" class="text-inherit" />
+          </a>
+          <a class="rounded-full h-full aspect-square text-sm flex justify-center items-center text-neutral-400! hover:text-black! hover:bg-neutral-100 transition-colors text-nowrap"
+            @click="scrollToTop">
+            <ChevronUpCircle :size="20" :stroke-width="1.8" class="text-inherit" />
           </a>
         </nav>
         <nav v-else class="flex-1 flex items-center min-h-14 max-h-14 h-14 p-2 pl-0 w-7xl max-w-full overflow-hidden">
